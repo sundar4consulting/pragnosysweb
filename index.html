@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pragnosys | Applied intelligence, from insight to system</title>
+<meta name="description" content="Pragnosys turns first-principles thinking into AI workflows, decision frameworks, and teaching tools that organizations can run.">
+<meta name="theme-color" content="#05343A">
+<meta property="og:title" content="Pragnosys: insight in, systems out">
+<meta property="og:description" content="An applied intelligence initiative bridging foundational wisdom and practical, systemized execution.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305343A'/%3E%3Ccircle cx='10' cy='17' r='4' fill='%23FFC15E'/%3E%3Ccircle cx='22' cy='10' r='3' fill='%231FD1C4'/%3E%3Ccircle cx='22' cy='22' r='3' fill='%231FD1C4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --lagoon:#1FD1C4;        /* primary turquoise */
+  --lagoon-deep:#08908A;   /* turquoise for text on light */
+  --current:#05343A;       /* hero water */
+  --deep:#062A2F;          /* work section */
+  --trench:#031B1F;        /* footer */
+  --glass:#E8F7F4;         /* light sections */
+  --ink:#0A2B30;
+  --spark:#FFC15E;         /* prajna: intuition */
+  --on-dark:#E6FBF8;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --text:"Newsreader",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--text);font-size:1.1875rem;line-height:1.6;color:var(--ink);background:var(--glass)}
+h1,h2,h3{font-family:var(--display);margin:0;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lagoon);outline-offset:3px;border-radius:4px}
+.contact :focus-visible{outline-color:#032327}
+.skip{position:absolute;left:-999px;top:8px;background:var(--lagoon);color:#032327;padding:10px 16px;border-radius:8px;z-index:50;font-family:var(--display)}
+.skip:focus{left:8px}
+
+.wrap{max-width:1180px;margin:0 auto}
+.sec{padding:clamp(72px,11vw,140px) clamp(20px,5vw,72px)}
+.sec.dark{background:var(--deep);color:var(--on-dark)}
+.sec.contact{background:var(--lagoon);color:#032327}
+h2{font-size:clamp(2.2rem,5.2vw,4.2rem);letter-spacing:-.035em;line-height:1.02;font-variation-settings:"wdth" 88;max-width:17ch}
+.lede{font-size:clamp(1.15rem,1.6vw,1.4rem);max-width:44rem;margin-top:1.4rem;opacity:.86}
+
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px clamp(16px,4vw,48px);background:rgba(4,40,45,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--on-dark);font-family:var(--display)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1.3rem;letter-spacing:-.02em}
+.top nav ul{display:flex;gap:clamp(14px,2.4vw,32px);list-style:none;margin:0;padding:0;font-weight:500;font-size:1rem}
+.top nav a{text-decoration:none;opacity:.85;padding:6px 2px}
+.top nav a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--lagoon);text-underline-offset:6px;text-decoration-thickness:2px}
+@media (max-width:640px){.top nav li:not(:last-child){display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;background:var(--current);color:var(--on-dark);overflow:hidden}
+#field{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.scrim{position:absolute;inset:0;background:radial-gradient(60% 75% at 22% 58%,rgba(5,52,58,.88),rgba(5,52,58,0) 72%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;width:100%;display:grid;gap:clamp(24px,4vh,44px);padding:clamp(110px,18vh,190px) clamp(20px,5vw,72px) clamp(28px,5vh,56px);pointer-events:none}
+.hero-inner a,.hero-inner input{pointer-events:auto}
+h1{font-size:clamp(3.1rem,9.2vw,8.4rem);line-height:.93;letter-spacing:-.045em;font-variation-settings:"wdth" 84;font-weight:750}
+h1 span{display:block}
+h1 .l1{color:var(--spark)}
+h1 .l2{color:var(--lagoon)}
+.hero .sub{font-size:clamp(1.15rem,1.8vw,1.45rem);max-width:36rem;color:rgba(230,251,248,.88)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;border-radius:999px;font-family:var(--display);font-weight:600;font-size:1.05rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer}
+.btn.primary{background:var(--lagoon);color:#032327}
+.btn.primary:hover{background:#4FE3D8}
+.btn.ghost{border-color:rgba(230,251,248,.45);color:var(--on-dark)}
+.btn.ghost:hover{background:rgba(230,251,248,.1)}
+
+.lens{max-width:38rem;font-family:var(--display)}
+.lens-top{display:flex;justify-content:space-between;gap:12px;font-size:1rem;margin-bottom:10px}
+.lens-top .p{color:var(--spark)}
+.lens-top .g{color:var(--lagoon);text-align:right}
+.lens-top small{display:block;font-size:.85rem;color:rgba(230,251,248,.7);font-weight:400}
+.lens-range{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:transparent;margin:0;cursor:ew-resize}
+.lens-range::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--spark),var(--lagoon))}
+.lens-range::-moz-range-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--spark),var(--lagoon))}
+.lens-range::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;margin-top:-11px;border-radius:50%;background:#fff;border:5px solid var(--lagoon);box-shadow:0 0 0 6px rgba(31,209,196,.22)}
+.lens-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:5px solid var(--lagoon);box-shadow:0 0 0 6px rgba(31,209,196,.22)}
+.lens-range:focus-visible{outline:none}
+.lens-range:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--current),0 0 0 7px var(--lagoon)}
+.lens-range:focus-visible::-moz-range-thumb{box-shadow:0 0 0 4px var(--current),0 0 0 7px var(--lagoon)}
+
+/* ---------- name ---------- */
+.etym{margin-top:3.2rem;border-top:2px solid var(--ink)}
+.etym-row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(16px,4vw,56px);align-items:center;padding:clamp(18px,2.6vw,30px) 0;border-bottom:1.5px solid rgba(10,43,48,.2)}
+.word{font-family:var(--display);font-weight:700;font-size:clamp(3rem,9.5vw,7.4rem);line-height:1;letter-spacing:-.05em;color:rgba(10,43,48,.2);font-variation-settings:"wdth" 82}
+.word b{font-weight:800;color:var(--lagoon-deep)}
+.gloss{max-width:30rem}
+.gloss strong{font-family:var(--display);font-weight:700;font-size:1.05rem}
+.verdict{margin-top:clamp(40px,6vw,72px);font-family:var(--display);font-weight:650;font-size:clamp(1.7rem,3.8vw,3rem);line-height:1.12;letter-spacing:-.03em;max-width:24ch;font-variation-settings:"wdth" 90}
+.verdict span{display:block}
+.verdict .b{color:var(--lagoon-deep)}
+@media (max-width:760px){.etym-row{grid-template-columns:1fr}}
+
+/* ---------- work bench ---------- */
+.bench{display:grid;grid-template-columns:minmax(230px,320px) minmax(0,1fr);gap:clamp(20px,3vw,48px);margin-top:3rem;align-items:start}
+.tabs{display:grid;gap:10px}
+.tab{text-align:left;padding:18px 20px;border-radius:14px;border:1.5px solid rgba(230,251,248,.18);background:transparent;color:inherit;font:inherit;cursor:pointer}
+.tab strong{display:block;font-family:var(--display);font-size:1.18rem;line-height:1.2;letter-spacing:-.01em}
+.tab span{display:block;margin-top:4px;font-size:.98rem;opacity:.75;line-height:1.4}
+.tab:hover{border-color:rgba(31,209,196,.7)}
+.tab[aria-selected="true"]{background:var(--lagoon);border-color:var(--lagoon);color:#032327}
+.tab[aria-selected="true"] span{opacity:.85}
+.panel{border-radius:22px;border:1.5px solid rgba(230,251,248,.16);background:rgba(230,251,248,.045);padding:clamp(20px,3vw,40px)}
+.panel[hidden]{display:none}
+.panel h3{font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.025em;line-height:1.1}
+.panel > p{margin-top:.9rem;max-width:40rem;opacity:.9}
+.points{margin:1.1rem 0 0;padding:0;list-style:none;display:grid;gap:.5rem;max-width:40rem}
+.points li{padding-left:1.4rem;position:relative}
+.points li::before{content:"";position:absolute;left:0;top:.62em;width:.6rem;height:.6rem;border-radius:50%;background:var(--lagoon)}
+.demo{margin-top:1.8rem;padding:clamp(14px,2vw,24px);border-radius:12px;background:rgba(0,0,0,.22);font-family:var(--display)}
+.demo-head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.demo-head h4{margin:0;font-size:1rem;font-weight:600}
+.demo-head small{opacity:.7;font-weight:400}
+.btn.small{min-height:42px;padding:8px 20px;font-size:.98rem}
+.btn[disabled]{opacity:.5;cursor:default}
+
+/* workflow svg */
+.graph{width:100%;height:auto;display:block}
+.edge{stroke:rgba(230,251,248,.25);stroke-width:2;fill:none}
+.edge.on{stroke:var(--spark);stroke-dasharray:6 6;animation:flow .7s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-12}}
+.node rect{fill:#0B3C42;stroke:rgba(230,251,248,.3);stroke-width:1.5}
+.node text{fill:var(--on-dark);font:600 14px var(--display);text-anchor:middle;dominant-baseline:central}
+.node.on rect{fill:var(--lagoon);stroke:var(--lagoon)}
+.node.on text{fill:#032327}
+.log{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px;min-height:3rem;font-size:1rem}
+.log li{padding:10px 14px;border-radius:10px;background:rgba(230,251,248,.07);border-left:4px solid var(--spark);line-height:1.4}
+.log li.empty{background:none;border-left-color:transparent;opacity:.65;padding-left:0}
+@media (prefers-reduced-motion:reduce){.edge.on{animation:none}}
+
+/* deconstruct */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px;padding:0;border:0}
+.chip{padding:10px 18px;border-radius:999px;border:1.5px solid rgba(230,251,248,.3);background:transparent;color:inherit;font:500 .98rem var(--display);cursor:pointer;text-align:left}
+.chip:hover{border-color:var(--lagoon)}
+.chip[aria-pressed="true"]{background:var(--lagoon);border-color:var(--lagoon);color:#032327}
+.layers{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.layers li{padding:12px 16px;border-radius:10px;background:rgba(230,251,248,.07);border-left:4px solid var(--lagoon);opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.layers li.in{opacity:1;transform:none}
+.layers li.go{border-left-color:var(--spark)}
+.layers b{display:block;font-size:.95rem;margin-bottom:2px;color:var(--lagoon)}
+.layers li.go b{color:var(--spark)}
+.layers span{font-family:var(--text);font-size:1.08rem;line-height:1.45}
+@media (prefers-reduced-motion:reduce){.layers li{transition:none;transform:none}}
+
+/* EV tool */
+.sliders{display:grid;gap:16px}
+.sl label{display:flex;justify-content:space-between;gap:12px;font-weight:500;margin-bottom:4px}
+.sl output{font-weight:700;color:var(--lagoon);font-variant-numeric:tabular-nums}
+.plain{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;margin:0}
+.plain::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:rgba(230,251,248,.22)}
+.plain::-moz-range-track{height:6px;border-radius:6px;background:rgba(230,251,248,.22)}
+.plain::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:var(--lagoon);border:3px solid #062A2F;box-shadow:0 0 0 2px var(--lagoon)}
+.plain::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--lagoon);border:3px solid #062A2F;box-shadow:0 0 0 2px var(--lagoon)}
+.plain:focus-visible{outline:none}
+.plain:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 2px var(--lagoon),0 0 0 6px rgba(31,209,196,.5)}
+.plain:focus-visible::-moz-range-thumb{box-shadow:0 0 0 2px var(--lagoon),0 0 0 6px rgba(31,209,196,.5)}
+.result{margin-top:20px;padding-top:18px;border-top:1.5px solid rgba(230,251,248,.16)}
+.ev{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.ev .n{font-size:clamp(2.4rem,6vw,3.6rem);font-weight:750;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.ev .n.pos{color:var(--lagoon)}
+.ev .n.neg{color:var(--spark)}
+.ev small{opacity:.75;font-size:.95rem}
+.odds{position:relative;height:14px;border-radius:99px;background:rgba(230,251,248,.14);margin:20px 0 8px}
+.odds .zone{position:absolute;top:0;bottom:0;right:0;border-radius:0 99px 99px 0;background:rgba(31,209,196,.55)}
+.odds .mark{position:absolute;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:#fff;border:4px solid var(--spark)}
+.odds-key{display:flex;justify-content:space-between;font-size:.88rem;opacity:.75}
+.say{margin-top:12px;font-family:var(--text);font-size:1.12rem;line-height:1.5}
+.habit{margin-top:14px;font-family:var(--text);font-style:italic;opacity:.8;font-size:1.05rem}
+
+@media (max-width:860px){
+  .bench{grid-template-columns:1fr}
+  .tabs{grid-template-columns:1fr}
+}
+
+/* ---------- method ---------- */
+.steps{list-style:none;margin:3.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;position:relative}
+.steps::before{content:"";position:absolute;top:20px;left:22px;right:22px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--spark),var(--lagoon))}
+.step{position:relative}
+.dot{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--glass);border:4px solid var(--c);font-family:var(--display);font-weight:700;font-size:1rem}
+.step h3{font-size:1.35rem;margin-top:1rem;letter-spacing:-.02em}
+.step p{margin-top:.4rem;font-size:1.05rem;line-height:1.5}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps::before{top:22px;bottom:22px;left:20px;right:auto;width:4px;height:auto;background:linear-gradient(180deg,var(--spark),var(--lagoon))}
+  .step{display:grid;grid-template-columns:44px 1fr;column-gap:18px}
+  .step h3{margin-top:0}
+  .step .body{grid-column:2}
+}
+
+/* ---------- contact ---------- */
+.contact h2{max-width:14ch}
+.cform{margin-top:2.4rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;max-width:46rem;font-family:var(--display)}
+.cform .full{grid-column:1/-1}
+.cform label{display:block;font-weight:600;margin-bottom:6px}
+.cform input,.cform select,.cform textarea{width:100%;font:400 1.1rem var(--text);color:#032327;background:#E9FFFC;border:2px solid #032327;border-radius:12px;padding:12px 14px}
+.cform textarea{min-height:9rem;resize:vertical}
+.cform .btn{background:#032327;color:var(--lagoon);border-color:#032327;justify-self:start}
+.cform .btn:hover{background:#06454B}
+.status{grid-column:1/-1;font-family:var(--text);font-size:1.05rem;min-height:1.6rem}
+@media (max-width:620px){.cform{grid-template-columns:1fr}}
+
+footer{background:var(--trench);color:rgba(230,251,248,.75);padding:36px clamp(20px,5vw,72px);font-family:var(--display);font-size:.98rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:center}
+footer .brand{color:var(--on-dark)}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#name">Skip to content</a>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Pragnosys home">
+    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M22 10V22M22 10H12M22 22H12" stroke="#1FD1C4" stroke-width="1.6" fill="none" opacity=".6"/>
+      <circle cx="8" cy="15" r="3.6" fill="#FFC15E"/>
+      <circle cx="22" cy="10" r="3" fill="#1FD1C4"/>
+      <circle cx="22" cy="22" r="3" fill="#1FD1C4"/>
+      <circle cx="12" cy="10" r="2" fill="#1FD1C4"/>
+      <circle cx="12" cy="22" r="2" fill="#1FD1C4"/>
+    </svg>
+    Pragnosys
+  </a>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#name">Name</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero" aria-labelledby="h1">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="scrim"></div>
+  <div class="hero-inner" id="top">
+    <h1 id="h1"><span class="l1">Insight in.</span><span class="l2">Systems out.</span></h1>
+    <p class="sub">Pragnosys is an applied intelligence initiative. We take first-principles thinking and turn it into AI workflows, decision frameworks, and teaching tools that your team can run.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">Start a conversation</a>
+      <a class="btn ghost" href="#work">Try the demos</a>
+    </div>
+    <div class="lens">
+      <div class="lens-top">
+        <div class="p">Prajna<small>Intuition, loose and wide</small></div>
+        <div class="g">Gnosis<small>Structure, tested and repeatable</small></div>
+      </div>
+      <input class="lens-range" id="lens" type="range" min="0" max="100" step="0.1" value="0" aria-label="Turn insight into structure: slide from Prajna to Gnosis">
+    </div>
+  </div>
+</section>
+
+<!-- ================= NAME ================= -->
+<section class="sec" id="name" aria-labelledby="name-h">
+  <div class="wrap">
+    <h2 id="name-h">The name is the method.</h2>
+    <p class="lede">Pragnosys joins three ideas. Read the highlighted letters down the page.</p>
+
+    <div class="etym">
+      <div class="etym-row">
+        <div class="word" aria-label="Prajna"><b>Pra</b>jna</div>
+        <p class="gloss"><strong>Prajna</strong> is Sanskrit for discerning wisdom: seeing a situation as it is, before the story told about it.</p>
+      </div>
+      <div class="etym-row">
+        <div class="word" aria-label="Gnosis"><b>Gnos</b>is</div>
+        <p class="gloss"><strong>Gnosis</strong> is Greek for knowing that comes from direct experience and evidence, not hearsay.</p>
+      </div>
+      <div class="etym-row">
+        <div class="word" aria-label="System">S<b>ys</b>tem</div>
+        <p class="gloss"><strong>System</strong> is structure that lets knowing repeat: workflows, models, and habits that keep working when you leave the room.</p>
+      </div>
+    </div>
+
+    <p class="verdict">
+      <span>Wisdom without structure stays an opinion.</span>
+      <span class="b">Structure without wisdom automates the wrong thing.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="sec dark" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <h2 id="work-h">Three kinds of work, one way of thinking.</h2>
+    <p class="lede">Pick one and try a small version of it below. The demos use sample data, so nothing you enter leaves your browser.</p>
+
+    <div class="bench">
+      <div class="tabs" role="tablist" aria-label="Areas of work">
+        <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true"><strong>AI orchestration and systems</strong><span>Workflows and agents that reduce friction</span></button>
+        <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><strong>Strategy from first principles</strong><span>Clarity on risk, capital, and execution</span></button>
+        <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><strong>Knowledge and education</strong><span>Frameworks and tools for sharper reasoning</span></button>
+      </div>
+
+      <div>
+        <!-- Pillar 1 -->
+        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+          <h3>Applied AI orchestration and systems architecture</h3>
+          <p>We engineer scalable, intelligent workflows and autonomous agents, then design the technical system around them so people spend less effort deciding what happens next.</p>
+          <ul class="points">
+            <li>Agents that handle routine decisions and escalate the hard ones.</li>
+            <li>Architecture that stays understandable as it grows.</li>
+          </ul>
+          <div class="demo">
+            <div class="demo-head">
+              <h4>Sample request <small>Illustrative</small></h4>
+              <button class="btn primary small" id="runFlow" type="button">Run sample request</button>
+            </div>
+            <svg class="graph" viewBox="0 0 700 260" role="img" aria-label="Workflow graph: intake, router, research and analyst agents, reviewer, decision">
+              <path class="edge" id="e1" d="M118 130 H152"/>
+              <path class="edge" id="e2" d="M248 130 C285 130 285 62 312 62"/>
+              <path class="edge" id="e3" d="M248 130 C285 130 285 198 312 198"/>
+              <path class="edge" id="e4" d="M418 62 C455 62 455 130 482 130"/>
+              <path class="edge" id="e5" d="M418 198 C455 198 455 130 482 130"/>
+              <path class="edge" id="e6" d="M558 130 H582"/>
+              <g class="node" id="n-intake"><rect x="20" y="108" width="98" height="44" rx="10"/><text x="69" y="130">Intake</text></g>
+              <g class="node" id="n-router"><rect x="152" y="108" width="96" height="44" rx="10"/><text x="200" y="130">Router</text></g>
+              <g class="node" id="n-research"><rect x="312" y="40" width="106" height="44" rx="10"/><text x="365" y="62">Research</text></g>
+              <g class="node" id="n-analyst"><rect x="312" y="176" width="106" height="44" rx="10"/><text x="365" y="198">Analyst</text></g>
+              <g class="node" id="n-check"><rect x="482" y="108" width="76" height="44" rx="10"/><text x="520" y="130">Review</text></g>
+              <g class="node" id="n-decision"><rect x="582" y="108" width="98" height="44" rx="10"/><text x="631" y="130">Decision</text></g>
+            </svg>
+            <ol class="log" id="flowLog" aria-live="polite">
+              <li class="empty">Press the button to watch a question move through the system.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+          <h3>Strategic consulting and first-principles problem solving</h3>
+          <p>We take a multifaceted business or operational challenge apart until only the fundamentals remain, then rebuild the plan on what is true.</p>
+          <ul class="points">
+            <li>Data-grounded methods for risk, capital allocation, and structural execution.</li>
+            <li>Plans that name their assumptions so they can be tested.</li>
+          </ul>
+          <div class="demo">
+            <div class="demo-head">
+              <h4>Deconstruct a problem <small>Illustrative examples</small></h4>
+            </div>
+            <fieldset class="chips" id="chips">
+              <legend class="sr" style="position:absolute;left:-999px">Choose a problem</legend>
+              <button class="chip" type="button" data-k="0" aria-pressed="false">Margins are shrinking</button>
+              <button class="chip" type="button" data-k="1" aria-pressed="false">Projects keep slipping</button>
+              <button class="chip" type="button" data-k="2" aria-pressed="false">We can't pick which bets to fund</button>
+            </fieldset>
+            <ol class="layers" id="layers" aria-live="polite"></ol>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+          <h3>Structured knowledge sharing and education</h3>
+          <p>We build frameworks that link classical models of discernment with modern analytical methods, and teaching tools that make quantitative reasoning a habit.</p>
+          <ul class="points">
+            <li>Mental models you can use in a meeting, not just in a lecture.</li>
+            <li>Platforms that build operational discipline through practice.</li>
+          </ul>
+          <div class="demo">
+            <div class="demo-head">
+              <h4>Is this bet worth it? <small>Mental model: expected value</small></h4>
+            </div>
+            <div class="sliders">
+              <div class="sl"><label for="pr">Chance it works <output id="prO">30%</output></label><input class="plain" id="pr" type="range" min="1" max="99" value="30"></div>
+              <div class="sl"><label for="py">Payoff if it works <output id="pyO">200</output></label><input class="plain" id="py" type="range" min="10" max="500" step="5" value="200"></div>
+              <div class="sl"><label for="cs">Cost to try <output id="csO">40</output></label><input class="plain" id="cs" type="range" min="5" max="300" step="5" value="40"></div>
+            </div>
+            <div class="result">
+              <div class="ev"><span class="n pos" id="evN">+20</span><small>expected value, in the same units as payoff and cost</small></div>
+              <div class="odds" aria-hidden="true"><div class="zone" id="zone"></div><div class="mark" id="mark"></div></div>
+              <div class="odds-key"><span>0% chance</span><span id="beLab">Break-even 20%</span><span>100%</span></div>
+              <p class="say" id="say"></p>
+              <p class="habit">Before trusting the number, ask what would have to be true for the odds to be that high.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METHOD ================= -->
+<section class="sec" id="method" aria-labelledby="method-h">
+  <div class="wrap">
+    <h2 id="method-h">From a messy question to a running system.</h2>
+    <p class="lede">Each engagement moves from the amber side of the page to the turquoise side, in this order.</p>
+    <ol class="steps">
+      <li class="step"><span class="dot" style="--c:#FFC15E">1</span><div class="body"><h3>Observe</h3><p>Listen for what is actually happening, not the summary of it.</p></div></li>
+      <li class="step"><span class="dot" style="--c:#CDC77E">2</span><div class="body"><h3>Reduce</h3><p>Strip the problem to its facts and constraints.</p></div></li>
+      <li class="step"><span class="dot" style="--c:#8CCB9E">3</span><div class="body"><h3>Model</h3><p>Make the logic explicit enough to test and challenge.</p></div></li>
+      <li class="step"><span class="dot" style="--c:#4FCDB4">4</span><div class="body"><h3>Build</h3><p>Turn the model into workflows, agents, and decision tools.</p></div></li>
+      <li class="step"><span class="dot" style="--c:#1FD1C4">5</span><div class="body"><h3>Operate</h3><p>Hand over something your team can run, question, and improve.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <h2 id="contact-h">Bring us a tangled problem.</h2>
+    <p class="lede">Tell us what is hard to see clearly right now. We will reply with how we would approach it.</p>
+    <form class="cform" id="cform" novalidate>
+      <div><label for="cn">Your name</label><input id="cn" name="name" autocomplete="name"></div>
+      <div><label for="cf">Most interested in</label>
+        <select id="cf" name="focus">
+          <option>AI orchestration and systems</option>
+          <option>Strategy from first principles</option>
+          <option>Knowledge and education</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="full"><label for="cm">What are you trying to solve?</label><textarea id="cm" name="message"></textarea></div>
+      <button class="btn" type="submit">Draft my email</button>
+      <p class="status" id="status" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top">Pragnosys</a>
+    <span>Prajna, Gnosis, System. Applied intelligence.</span>
+    <span>&copy; <span id="yr">2026</span> Pragnosys</span>
+  </div>
+</footer>
+
+<script>
+/* Set your real address here. */
+const CONTACT_EMAIL = "hello@pragnosys.com";
+const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* ============ HERO: intuition field that crystallizes into a lattice ============ */
+(function(){
+  const hero = document.getElementById("hero");
+  const cv = document.getElementById("field");
+  const ctx = cv.getContext("2d");
+  const lens = document.getElementById("lens");
+  const AMB = [255,193,94], TUR = [31,209,196];
+  let W=0,H=0,gap=42,cols=0,rows=0,P=[],xs,ys,bs;
+  let target=.58, current=REDUCE?.58:0, touched=false, raf=0, start=performance.now();
+  const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+  const smooth=x=>x*x*(3-2*x);
+
+  function resize(){
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    const box=hero.getBoundingClientRect(); W=box.width; H=box.height;
+    cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    gap=W<640?32:42;
+    cols=Math.ceil(W/gap)+1; rows=Math.ceil(H/gap)+1;
+    const ox=(W-(cols-1)*gap)/2, oy=(H-(rows-1)*gap)/2;
+    P=[];
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)
+      P.push({hx:ox+c*gap,hy:oy+r*gap,fx:Math.random()*W,fy:Math.random()*H,s:Math.random()*1.2});
+    xs=new Float32Array(P.length); ys=new Float32Array(P.length); bs=new Float32Array(P.length);
+    draw(0,false);
+  }
+
+  function draw(t,advance){
+    ctx.clearRect(0,0,W,H);
+    const dx=current*W, band=Math.max(80,W*.08), n=P.length;
+    for(let i=0;i<n;i++){
+      const p=P[i];
+      if(advance){
+        const a=Math.sin(p.fx*.006+t*.25)*2+Math.cos(p.fy*.007-t*.2)*2+p.s;
+        p.fx+=Math.cos(a)*.7; p.fy+=Math.sin(a)*.7;
+        if(p.fx<0)p.fx+=W; else if(p.fx>W)p.fx-=W;
+        if(p.fy<0)p.fy+=H; else if(p.fy>H)p.fy-=H;
+      }
+      const b=1-smooth(clamp((p.hx-(dx-band))/(2*band)));
+      xs[i]=p.fx+(p.hx-p.fx)*b; ys[i]=p.fy+(p.hy-p.fy)*b; bs[i]=b;
+    }
+    /* lattice edges */
+    ctx.lineWidth=1;
+    for(const [thr,alpha] of [[.45,.06],[.9,.15]]){
+      ctx.beginPath(); ctx.strokeStyle="rgba(31,209,196,"+alpha+")";
+      for(let i=0;i<n;i++){
+        if(bs[i]<=thr)continue;
+        if((i%cols)<cols-1 && bs[i+1]>thr){ctx.moveTo(xs[i],ys[i]);ctx.lineTo(xs[i+1],ys[i+1]);}
+        if(i+cols<n && bs[i+cols]>thr){ctx.moveTo(xs[i],ys[i]);ctx.lineTo(xs[i+cols],ys[i+cols]);}
+      }
+      ctx.stroke();
+    }
+    /* nodes */
+    for(let i=0;i<n;i++){
+      const b=bs[i];
+      const r=Math.round(AMB[0]+(TUR[0]-AMB[0])*b), g=Math.round(AMB[1]+(TUR[1]-AMB[1])*b), bl=Math.round(AMB[2]+(TUR[2]-AMB[2])*b);
+      ctx.fillStyle="rgba("+r+","+g+","+bl+","+(.5+.4*b)+")";
+      ctx.beginPath(); ctx.arc(xs[i],ys[i],1.3+b*1.1,0,6.2832); ctx.fill();
+    }
+    /* lens line */
+    const grad=ctx.createLinearGradient(0,0,0,H);
+    grad.addColorStop(0,"rgba(31,209,196,0)"); grad.addColorStop(.5,"rgba(31,209,196,.75)"); grad.addColorStop(1,"rgba(31,209,196,0)");
+    ctx.strokeStyle=grad; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(dx,0); ctx.lineTo(dx,H); ctx.stroke();
+  }
+
+  function tick(now){
+    const t=(now-start)/1000;
+    if(!touched && t<4.2){
+      const k=clamp(t/4.2);
+      target=.58*(1-Math.pow(1-k,3));
+      lens.value=(target*100).toFixed(1);
+    }else if(!touched){
+      target=.58+Math.sin((t-4.2)*.55)*.035;
+    }
+    current+=(target-current)*.07;
+    draw(t,true);
+    raf=requestAnimationFrame(tick);
+  }
+
+  function setFromUser(v){
+    touched=true; target=clamp(v);
+    if(REDUCE){current=target;draw(0,false);}
+  }
+  lens.addEventListener("input",()=>setFromUser(lens.value/100));
+  hero.addEventListener("pointermove",e=>{
+    if(e.target.closest("a,input,button"))return;
+    const box=hero.getBoundingClientRect();
+    const v=clamp((e.clientX-box.left)/box.width,.02,.98);
+    lens.value=Math.round(v*100);
+    setFromUser(v);
+  });
+
+  let rt; window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(resize,120);});
+  resize();
+  if(REDUCE){lens.value=58;draw(0,false);return;}
+  new IntersectionObserver(es=>{
+    if(es[0].isIntersecting){if(!raf)raf=requestAnimationFrame(tick);}
+    else{cancelAnimationFrame(raf);raf=0;}
+  }).observe(hero);
+})();
+
+/* ============ Tabs ============ */
+(function(){
+  const tabs=[...document.querySelectorAll('[role="tab"]')];
+  const panels=tabs.map(t=>document.getElementById(t.getAttribute("aria-controls")));
+  function select(i,focus){
+    tabs.forEach((t,j)=>{
+      t.setAttribute("aria-selected",j===i);
+      t.tabIndex=j===i?0:-1;
+      panels[j].hidden=j!==i;
+    });
+    if(focus)tabs[i].focus();
+  }
+  tabs.forEach((t,i)=>{
+    t.addEventListener("click",()=>select(i));
+    t.addEventListener("keydown",e=>{
+      const n=tabs.length;
+      if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();select((i+1)%n,true);}
+      else if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();select((i-1+n)%n,true);}
+      else if(e.key==="Home"){e.preventDefault();select(0,true);}
+      else if(e.key==="End"){e.preventDefault();select(n-1,true);}
+    });
+  });
+})();
+
+/* ============ Demo 1: workflow ============ */
+(function(){
+  const btn=document.getElementById("runFlow"), log=document.getElementById("flowLog");
+  const steps=[
+    {n:["intake"],e:[],m:"Request received: \u201CWhy did sign-ups drop 12% last month?\u201D"},
+    {n:["intake","router"],e:["e1"],m:"The router splits it into two questions: what changed, and who was affected."},
+    {n:["router","research","analyst"],e:["e2","e3"],m:"The research agent reads release notes and support tickets. The analyst agent segments the funnel by cohort."},
+    {n:["research","analyst","check"],e:["e4","e5"],m:"The reviewer compares both findings and flags a gap: there is no data for mobile web."},
+    {n:["check","decision"],e:["e6"],m:"A decision brief goes to the owner with a confidence level and the open gap."}
+  ];
+  const wait=ms=>new Promise(r=>setTimeout(r,REDUCE?120:ms));
+  function paint(s){
+    document.querySelectorAll(".node").forEach(el=>el.classList.toggle("on",s.n.includes(el.id.slice(2))));
+    document.querySelectorAll(".edge").forEach(el=>el.classList.toggle("on",s.e.includes(el.id)));
+  }
+  btn.addEventListener("click",async()=>{
+    btn.disabled=true; log.innerHTML="";
+    for(const s of steps){
+      paint(s);
+      const li=document.createElement("li"); li.textContent=s.m; log.appendChild(li);
+      await wait(1500);
+    }
+    btn.disabled=false;
+  });
+})();
+
+/* ============ Demo 2: deconstruct ============ */
+(function(){
+  const data=[
+    [["What we assume","Costs are rising evenly across every product."],
+     ["What the data supports","Three of nine products explain most of the decline, and discounting grew only on those."],
+     ["What cannot change","Supplier contracts lock input prices for now, so pricing and mix are the only levers."],
+     ["First move","Reprice the three products and pause new discount approvals for 30 days, then measure."]],
+    [["What we assume","The teams are estimating badly."],
+     ["What the data supports","Estimates hold up. Most of the delay is work waiting for approval."],
+     ["What cannot change","Two sign-offs are required by regulation. The others are habit."],
+     ["First move","Drop the habitual sign-offs and put a 48-hour limit on the required ones."]],
+    [["What we assume","More analysis will make the answer obvious."],
+     ["What the data supports","The options differ mainly in how reversible they are, and nobody has scored that."],
+     ["What cannot change","This year's capital is limited and does not roll over."],
+     ["First move","Score each bet on payoff, odds, and cost to reverse. Fund the small reversible ones first."]]
+  ];
+  const chips=[...document.querySelectorAll(".chip")], out=document.getElementById("layers");
+  let token=0;
+  chips.forEach(c=>c.addEventListener("click",()=>{
+    chips.forEach(x=>x.setAttribute("aria-pressed",x===c));
+    const my=++token; out.innerHTML="";
+    data[+c.dataset.k].forEach((row,i)=>{
+      const li=document.createElement("li");
+      if(i===3)li.className="go";
+      li.innerHTML="<b></b><span></span>";
+      li.firstChild.textContent=row[0]; li.lastChild.textContent=row[1];
+      out.appendChild(li);
+      setTimeout(()=>{if(my===token)li.classList.add("in");},REDUCE?0:i*450+40);
+    });
+  }));
+})();
+
+/* ============ Demo 3: expected value ============ */
+(function(){
+  const pr=document.getElementById("pr"),py=document.getElementById("py"),cs=document.getElementById("cs");
+  const prO=document.getElementById("prO"),pyO=document.getElementById("pyO"),csO=document.getElementById("csO");
+  const evN=document.getElementById("evN"),zone=document.getElementById("zone"),mark=document.getElementById("mark");
+  const beLab=document.getElementById("beLab"),say=document.getElementById("say");
+  function calc(){
+    const p=pr.value/100, pay=+py.value, cost=+cs.value;
+    const ev=p*pay-cost, be=Math.min(cost/pay,1), beP=Math.round(be*100);
+    prO.textContent=pr.value+"%"; pyO.textContent=pay; csO.textContent=cost;
+    evN.textContent=(ev>=0?"+":"\u2212")+Math.abs(Math.round(ev));
+    evN.className="n "+(ev>=0?"pos":"neg");
+    zone.style.left=(be*100)+"%"; zone.style.display=be>=1?"none":"block";
+    mark.style.left=(p*100)+"%";
+    beLab.textContent="Break-even "+(cost>=pay?"never":beP+"%");
+    if(cost>=pay) say.textContent="Not worth it at any odds: the cost to try is at or above the payoff.";
+    else if(ev>0) say.textContent="Worth trying. The bet stays positive as long as the real chance is above "+beP+"%.";
+    else say.textContent="Not yet. You would need odds above "+beP+"%, or the cost to try below "+Math.round(p*pay)+".";
+  }
+  [pr,py,cs].forEach(el=>el.addEventListener("input",calc)); calc();
+})();
+
+/* ============ Contact ============ */
+document.getElementById("cform").addEventListener("submit",e=>{
+  e.preventDefault();
+  const n=document.getElementById("cn").value.trim();
+  const f=document.getElementById("cf").value;
+  const m=document.getElementById("cm").value.trim();
+  const body="Hello Pragnosys,\n\n"+(m||"I would like to talk about a problem.")+"\n\nInterested in: "+f+"\n"+(n?"\u2014 "+n:"");
+  window.location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent("A problem worth untangling")+"&body="+encodeURIComponent(body);
+  document.getElementById("status").textContent="Your email app should open with the draft. If it does not, write to "+CONTACT_EMAIL+".";
+});
+</script>
+</body>
+</html>
